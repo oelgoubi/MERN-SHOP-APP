@@ -1,0 +1,26 @@
+-------------- What I will Do ----------
+Let's learn how to develop MERN STACK apps 
+with Deployment on huroko mLab to make the application mLaband Authentification using JWT to protect 
+backend routes
+ and using package react-bootstrap 
+also react-transition-group for annimation
+
+----------------------------------------
+$npm install express body-parser mongoose concurrently --save
+
+concurrently package : so we can more than one npm script at a time 
+so we can run the server and the client at the same time 
+
+$ npm i -D nodemon  : install nodemon and save it as  Dev  dependency 
+because it's not needed for production 
+---- so there is two phases : Development and production
+
+add this :
+
+"scripts": {
+    "start": "node server.js", // to run in production : we have to re run the server every serverside change
+    "server":"nodemon node.js"  // but this will watch it 
+  }
+
+  //// Then we run the script names server once 
+  $ npm run server 

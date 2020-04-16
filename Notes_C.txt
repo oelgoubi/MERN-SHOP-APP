@@ -1,0 +1,158 @@
+/// INSTALL create-react-app Globaly 
+$ npm i -g create-react-app
+
+/// create a react app locally
+$ create-react-app .  // in the client folder
+
+"scripts": {
+    "start": "react-scripts start",  // with $npm start you can run dev server 
+    "build": "react-scripts build",  // easily compile and build out the app with $npm run build
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+
+//// ADD A PROXY 
+"proxy":"http://localhost:5000"
+
+so when we send a request we will for example 
+
+axios.get('/api/items') --> instead of doing axios.get("http://localhost:5000/api/items")
+
+
+///// run both server and client scripts
+
+we use the package concurrently in the global folder 
+
+and add the script to the server 
+
+"client":"npm start --prefix client"   
+
+so now we have 2 Scripts or commands 
+"server":"nodemon node.js",
+"client":"npm start --prefix client"
+
+so gather the magic commands
+
+"dev" : "concurrently \"npm run server\" \" npm run client\" "
+
+and then add another 
+script :
+ "client-install":"npm install --prefix client"
+
+ so if i put my app in github i don't have to put node_modules 
+ 
+ so just the client will run the command  ' npm run client-install ' to install the client side dependencies
+ without cd to that folder 
+
+ ///////////// now run 
+ npm run dev   ---> it will run the 2 commands 
+
+ http://localhost:5000/api/items we get data from our server data 
+
+ http://localhost:3000 we check our React App
+
+
+ ///////////////////////////// Now let's work on the front end
+
+ so let's go the client folder
+bootsrap : allow us to use bootsrap css
+reactstrap : allow us to use bootsrap component as react component
+UUID to generate random IDs tomporarely
+react-transition-group
+
+$ npm i bootstrap reactstrap uuid react-transition-group
+
+
+//// classic way : if you don't use arrow function
+
+class AppNavbar extends Component{
+     constructor(propos)  // THE CONTRUCTOR IS used to bind this var to the functions
+     {
+         super(props);
+         this.state = {
+             isOpen : false
+         }
+         this.toggle = this.toggle.bind(this)
+     }
+
+     toggle()
+     {
+         // SO THIS function can use this of the class 
+     }
+
+  }
+
+
+  ///// Issue and use of stricMode
+
+  StrictMode is a tool for highlighting potential
+   problems in an application. Like Fragment, 
+   StrictMode does not render any visible UI.
+   It activates additional checks and warnings for its descendants
+
+   <React.StrictMode>
+        <div>
+          <ComponentTwo />
+        </div>
+    </React.StrictMode>
+
+    StrictMode currently helps with:
+
+Identifying components with unsafe lifecycles
+Warning about legacy string ref API usage
+Warning about deprecated findDOMNode usage
+Detecting unexpected side effects
+Detecting legacy context API
+
+
+////// 
+Class based component or function based component
+
+///////////////
+
+const Button = () => (
+    <button>Hello world</button>    simple way to return an object
+) 
+The reason for this, as explained in 
+the MDN Docs is that an arrow function wrapped by () will return 
+the value it wraps, so if I wanted to use 
+curly braces I had to add the return keyword, like so:
+
+
+
+///// CHECK THE react dev tools 
+
+// a way to bind your function with this 
+showArea.bind( this, pass parameter )  : without calling the function immediately
+
+///////////// Implementing Redux
+
+$ npm i redux react-redux redux-thunk
+
+redux : package that handle the state of our app it can be used with other frameworks
+react-redux is what bind react with redux
+redux-thunk : middleware different way to dispatch from our actions to our reducer when 
+              we want to make an synchronous calls to our server 
+
+
+
+A store holds the whole state tree of your application.
+ The only way to change the state
+ inside it is to dispatch an action on it.
+
+ A store is a simple object 
+
+ //// USAGE OF DEV TOOLS Redux
+ https://github.com/zalmoxisus/redux-devtools-extension#usage
+
+
+ // FETCH DATA 
+ $ npm i axios
+
+ // Axios is Promise based HTTP client for the browser and node.js
+
+
+
+
+
+
